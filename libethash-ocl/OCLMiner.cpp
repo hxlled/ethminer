@@ -413,15 +413,18 @@ unsigned OCLMiner::getNumDevices()
 
 void OCLMiner::listDevices()
 {
-	string outString ="\nListing OpenCL devices (OCLMiner).\n";
+	string outString ="\Here Listing OpenCL devices (OCLMiner).\n";
 	std::cout << outString;
 	//List Platforms
 	vector<cl::Platform> platforms = getPlatforms();
+	std::cout << platforms.size();
+	
 	if (platforms.size() > 0) {
 		for (unsigned j = 0; j < platforms.size(); ++j)
 		{
 			//Platform Name
 			string platformName = platforms[j].getInfo<CL_PLATFORM_NAME>();
+			std::cout << platformName << endl;
 			if (platformName == "Altera SDK for OpenCL" ) {
 				outString = "[" + to_string(j) + "]Platform: OpenCL '" + platforms[j].getInfo<CL_PLATFORM_NAME>() + "'\n";
 				std::cout << outString;
@@ -490,6 +493,8 @@ bool OCLMiner::configureGPU(
 	{
 		cl_ulong result = 0;
 		device.getInfo(CL_DEVICE_GLOBAL_MEM_SIZE, &result);
+		cout << "result  \n" ;
+	    count << result ;
 		if (result >= dagSize)
 		{
 			cnote <<

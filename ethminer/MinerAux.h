@@ -41,10 +41,12 @@
 #include <libdevcore/SHA3.h>
 #include <libethcore/EthashAux.h>
 #include <libethcore/Farm.h>
+
+#define ETH_ETHASHOCL  1
+
 #if ETH_ETHASHCL
 #include <libethash-cl/CLMiner.h>
 #endif
-
 #if ETH_ETHASHOCL
 #include <libethash-ocl/OCLMiner.h>
 #endif
