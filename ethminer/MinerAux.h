@@ -42,7 +42,7 @@
 #include <libethcore/EthashAux.h>
 #include <libethcore/Farm.h>
 
-#define ETH_ETHASHOCL  1
+
 
 #if ETH_ETHASHCL
 #include <libethash-cl/CLMiner.h>
